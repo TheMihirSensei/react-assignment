@@ -13,19 +13,14 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import DeleteIcon from '@mui/icons-material/Delete';
-import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { Container } from '@mui/material';
 import { data } from "../../data/grid-table"
 import { profileView } from '../../redux/actions/profileView';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
+import { Bar } from 'react-chartjs-2';
+import Chart from 'chart.js/auto'
 
 
 const rows = data
@@ -262,7 +257,7 @@ const Home = () => {
         navigate("/profile", { replace: true });
         // history.push("/profile")
     }
-    const chartdata = {
+    const chartData = {
         labels: [
             'Boston',
             'Worcester',
@@ -290,8 +285,25 @@ const Home = () => {
 
     return (
         <Container>
-            {/* <Box width="100%" height={500}>
-            </Box> */}
+            <Box width="100%" height={650}>
+                <Bar
+                    data={chartData}
+                    options={{
+                        title: {
+                            display: true,
+                            text: 'Largest Cities in Massachusetts',
+                            fontSize: 25
+                        },
+                        legend: {
+                            display: false,
+                            position: 'bottom',
+                            labels: {
+                                fontColor: '#000'
+                            }
+                        }
+                    }}
+                />
+            </Box>
             <Box sx={{ width: '100%' }}>
                 <Paper sx={{ width: '100%', mb: 2 }}>
                     {/* <EnhancedTableToolbar numSelected={selected.length} /> */}

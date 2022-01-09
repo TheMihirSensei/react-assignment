@@ -2,6 +2,8 @@ import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Cont
 import { Box } from '@mui/system'
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Line from './Line'
+import CustomizedTables from './Table'
 // import { Line } from "react-chartjs-2";
 
 
@@ -43,9 +45,11 @@ const ProfileView = () => {
                         </Card>
                     </Box>
                     <Box>
+
+
                         <Box display="flex" flexWrap="wrap" gap={4} justifyContent="space-evenly">
                             <Box width="100%" height="auto" color="black" fontWeight={700} textAlign="center"
-                                p={5} bgcolor="white" >
+                                p={5} bgcolor="white" sx={{ boxShadow: 3 }} >
                                 <Box p={3} display="flex" gap={2}>
                                     <div style={{ width: 200, color: "blue" }}>Time </div> <div>{Time}</div>
                                 </Box>
@@ -65,37 +69,16 @@ const ProfileView = () => {
                                     <div style={{ width: 200, color: "blue" }}>rule </div> <div>{product.rule}</div>
                                 </Box>
                             </Box>
-                            {/* <Box width={300} height="auto" color="white" display="flex" gap={2} fontWeight={700} textAlign="center"
-                                p={5} bgcolor="pink">
-                                <div>
-                                    action
-                                </div>
-                                <div>
-                                    {product.action}
-                                </div>
-                            </Box>
-                            <Box width={300} height="auto" color="white" display="flex" gap={2} fontWeight={700} textAlign="center"
-                                p={5} bgcolor="burlywood">
-                                {product.computer}
-                            </Box >
-                            <Box width={300} height="auto" color="white" display="flex" gap={2} fontWeight={700} textAlign="center"
-                                p={5} bgcolor="darkseagreen">
-                                {product.desctiption}
-                            </Box>
-                            <Box width={300} height="auto" color="white" display="flex" gap={2} fontWeight={700} textAlign="center"
-                                p={5} bgcolor="darkviolet">
-                                {product.employee}
-                            </Box>
-                            <Box width={300} height="auto" color="white" display="flex" gap={2} fontWeight={700} textAlign="center"
-                                p={5} bgcolor="goldenrod">
-                                {product.policy}
-                            </Box>
-                            <Box width={300} height="auto" color="white" display="flex" gap={2} fontWeight={700} textAlign="center"
-                                p={5} bgcolor="lightseagreen">
-                                {product.rule}
-                            </Box> */}
+
                         </Box>
                     </Box>
+
+                </Box>
+                <Box my={3}>
+                    <Line />
+                </Box>
+                <Box my={2}>
+                    <CustomizedTables />
                 </Box>
             </Container>
         </div >
